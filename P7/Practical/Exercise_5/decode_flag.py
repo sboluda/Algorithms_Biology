@@ -1,4 +1,34 @@
+"""
+Program: decode-flag.py
+
+Description:
+This program reads an integer value from the command line representing
+a SAM FLAG and prints the corresponding FLAG names.
+
+Usage:
+    python decode-flag.py <flag_value>
+
+Example:
+    python decode-flag.py 272
+
+Output:
+    REVERSE
+    SECONDARY
+
+The program should interpret the input integer as a bitwise FLAG and
+print the names of all flags that are set in the given value, each on
+a separate line.
+"""
+
 import sys
+
+names = ['PAIRED', 'PROPER_PAIR', 'UNMAPPED', 'MATE_UNMAPPED', 'REVERSE', 'MATE_REVERSE', 'FIRST_IN_PAIR', 'SECOND_IN_PAIR', 'SECONDARY', 'QC_FAIL', 'DUPLICATE', 'SUPPLEMENTARY']
+
+flag = int(sys.argv[1])
+for i in range(12):
+    if flag & (2**i) == 2**i: # We play with bits directly: If _ AND 1 == 1 --> It means that flag is active, because it must be 1 & 1, NOT 0 & 1
+        print(names[i])
+
 
 # flag = sys.argv[1]
 # def decode_flag(flag):
@@ -25,10 +55,3 @@ import sys
 #         else:
 #             pass
 #     return flags
-
-names = ['PAIRED', 'PROPER_PAIR', 'UNMAPPED', 'MATE_UNMAPPED', 'REVERSE', 'MATE_REVERSE', 'FIRST_IN_PAIR', 'SECOND_IN_PAIR', 'SECONDARY', 'QC_FAIL', 'DUPLICATE', 'SUPPLEMENTARY']
-
-flag = int(sys.argv[1])
-for i in range(12):
-    if flag & (2**i) == 2**i: # We play with bits directly: If _ AND 1 == 1 --> It means that flag is active, because it must be 1 & 1, NOT 0 & 1
-        print(names[i])

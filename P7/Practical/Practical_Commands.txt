@@ -1,12 +1,18 @@
 Index the reference genome:
 
 minimap2 \
--x	map-ont	-d \                                                # 
+-x	map-ont	-d \                                                 
 ../GCA_000001405.15_GRCh38_no_alt_analysis_set.fna.gz.ont.mmi \ # OUTPUT file
 ../GCA_000001405.15_GRCh38_no_alt_analysis_set.fna.gz         \ # File we downloaded
 
 Mapping the index mmi file:
+minimap2 \
 -t 4 --print-qname -a -x map-ont \
 ../GCA_000001405.15_GRCh38_no_alt_analysis_set.fna.gz.ont.mmi \
 ../hg002.haplotagged-400l.fastq.gz \
 > hg002.haplotagged.sam \
+
+Summary:
+    1. Take the reference genome (fna.gz)
+    2. Build a searchable index structure from it (.mmi)
+    3. Use that structure to quickly find where reads align (.sam)

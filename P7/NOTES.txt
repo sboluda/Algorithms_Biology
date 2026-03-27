@@ -1,17 +1,7 @@
-To copy files from Windows to WSL:
+In order to speed up processes using WSL instead of Windows (let Ubuntu do the work faster):
+
+1. To copy files from Windows to WSL:
 cp -r /mnt/c/Users.../Directory_to_copy ~/Directory_to_paste
 
-To later update changes back into Windows:
-rsync -av --progress ~/Directory_to_paste /mnt/c/Users.../Directory_to_copy
-
-To check something "pv" Pipe Viewer - Small Linux utility to see the progress of data moving through a pipe or being written to a file:
-pv -tpreb <file_being_process> > /dev/null
-    - t = Show elapsed time
-    - p = Show progress bar
-    - r = Show data transfer rate
-    - e = Show estimate time
-    - b = Show total bytes transferred
-
-Or to see real progress:
-cd /mnt/c/Users/Sergi/Documents/GitHub/AB
-tar -cf - P7 | pv -s $(du -sb P7 | awk '{print $1}') | tar -xf - -C ~/
+2. To later update changes back into Windows:
+rsync -av --progress ~/Directory_to_paste/ /mnt/c/Users.../Directory_to_copy
