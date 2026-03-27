@@ -1,0 +1,39 @@
+#-----------------------------------------------------------#
+To run a doctest (_ini_):
+python -m doctest -v your_file.py
+
+#-----------------------------------------------------------#
+To run a test file:
+pytest test_your_file.py
+
+#-----------------------------------------------------------#
+To update GitHub fork:
+git status                                      # To check
+git add .                                       # or git add -f path/to/file.py to add files
+git commit -m "Describe what you changed"       # To commit a change
+git push origin main                            # MUST be in AB folder!!
+
+#-----------------------------------------------------------#
+To fetch updates in the GitHub parent folder (Arnau AB):
+git remote -v                   # Check that there is the upstrem
+git fetch upstrem               # Fetch changes from original repo
+
+git checkout main
+git merge upstrem/main
+
+git commit        AND :wq       # Git auto-generates a merge message
+git push origin main
+
+#-----------------------------------------------------------#
+To get a repository from Git (into a folder):
+# Inside a specific folder
+git clone link_to_the_repository
+
+#-----------------------------------------------------------#
+To create a new file in a certain folder (in Git Bash):
+touch __.py
+
+#-----------------------------------------------------------#
+To fastly read a gz file:
+zcat your_file.fastq.gz | my_script.py          # Using > we print the output wherever we want
+gzip your_file.fast                             # To compress into a zip a file (fastq for example)
