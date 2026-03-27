@@ -18,4 +18,4 @@ __additional
 !P6/mm.py
 
 # Ignore any folder named "Files" anywhere - They contain huge fasta or so files
-**/Files/**/Files/
+**/Files/
