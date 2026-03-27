@@ -1,0 +1,21 @@
+# Ignore all compiled Python files in all directories
+**/*.pyc
+**/*:Zone.Identifier
+
+# Ignore additional files and directories
+__pycache__/
+__additional
+.vscode/*
+
+# test_*.py amn ini_*.py and some other should be kept
+!**/test_*.py
+!**/ini_*.py
+
+!P5/trees/tree_nodes.py
+!P5/trees/drawtree.py
+
+!P6/gotoh.py
+!P6/mm.py
+
+# Ignore any folder named "Files" anywhere - They contain huge fasta or so files
+**/Files/**/Files/
